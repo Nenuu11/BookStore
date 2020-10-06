@@ -1,0 +1,15 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Unexpected Action.</h1>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Message:</strong> <code>@Model.RequestId</code>
+    </p>
+    <a asp-action="Index" class="btn btn-light">Back to List</a>
+}
+

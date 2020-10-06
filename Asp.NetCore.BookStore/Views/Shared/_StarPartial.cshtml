@@ -1,0 +1,12 @@
+﻿@model float
+
+@{ 
+    var starWidth = $"{Model * (75 / 5)}px"; 
+}
+
+
+    <div style="overflow: hidden; width:@starWidth; cursor:pointer; margin-left:100px" title="@Model">
+        <div style="width: 75px;">
+            <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+        </div>
+    </div>

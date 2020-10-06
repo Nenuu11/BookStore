@@ -1,0 +1,46 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Books Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Our BookStore</h1>
+    @if(Model != null && Model.Count > 0)
+    {
+            <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="width:400px">Name</th>
+                    <th>Author</th>
+                    <th>Book Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Book book in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(b => book.Id)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@book.Id">
+                            @Html.DisplayFor(b => book.Name)
+                        </a>
+                    </td>
+                    <td>@Html.DisplayFor(b => book.Author)</td>
+                    <td>
+                        <partial name="_StarPartial" model="@book.Rate"/>
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    } 
+    else
+    {
+        <div class="alert alert-info">
+            No Books Found.
+        </div>
+    }
+
+</div>
